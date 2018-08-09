@@ -1,0 +1,11 @@
+{
+    "name": "dailyApp",
+    "require": {
+        "php": "7.1.*",
+        "symfony/routing": "^4.1",
+        "twig/twig": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {"DailyApp\\": "src/"}
+    }
+}
