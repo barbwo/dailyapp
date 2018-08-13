@@ -5,16 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass:watch": "node-sass --watch src/assets/scss -o src/assets/css"
+    "sass:watch": "node-sass src/assets/scss -o src/assets/css --watch",
+    "postcss:watch": "postcss src/assets/css/style.css --output src/assets/css/style.min.css --use autoprefixer --use cssnano --map false --watch",
+    "css:watch": "npm run sass:watch & npm run postcss:watch"
   },
   "author": "Barbara",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.2.0",
     "bootstrap": "^4.1.3",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.4"
   },
   "devDependencies": {
-    "node-sass": "^4.9.3"
+    "autoprefixer": "^9.1.0",
+    "cssnano": "^4.0.5",
+    "node-sass": "^4.9.3",
+    "postcss-cli": "^6.0.0"
   }
 }

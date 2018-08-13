@@ -1,16 +1,52 @@
-.container {
-  max-width: 1000px;
+
+$primary: MistyRose;
+
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+::selection {
+  background-color: $primary;
 }
-header {
-  border-bottom: 1px solid LightGray;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  a {
-    display:inline-block;
-    margin: 20px;
+body {
+  min-height: 100vh;
+  padding: 56px 0 40px 0;
+  position: relative;
+}
+.navbar-light .navbar-brand {
+  color: $secondary;
+}
+.dropdown-menu {
+  cursor: pointer;
+}
+@include media-breakpoint-down(xs) {
+  .navbar .btn {
+    margin: 2px auto;
+  }
+  .dropdown-menu {
+    background: transparent;
+    border: none;
   }
 }
-main {
-  text-align: center;
+.jumbotron {
+  background: $light url('../images/bg.jpg') center / cover;
+  h1, p {
+    background-color: rgba($white, 0.6);
+    display: inline-block;
+    &::selection {
+      background-color: transparent;
+    }
+  }
+}
+#stickyFooter {
+  font-size: 0.8rem;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  .nav-link {
+    color: $secondary;
+    padding: 0 0.5rem;
+  }
+  .nav-link:hover {
+    color: $dark;
+  }
 }
