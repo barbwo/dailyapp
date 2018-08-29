@@ -16,17 +16,24 @@
         </button>
         <div id="navbarLinks" class="collapse navbar-collapse">
           <div class="navbar-nav ml-auto">
-            <a class="btn btn-outline-primary nav-item nav-link mx-1" href="#">Dziś</a>
-            <a class="btn btn-outline-primary nav-item nav-link mx-1" href="#">Tydzień</a>
-            <a class="nav-item nav-link" href="#">Organizer</a>
-            <div class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profil</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item">Ustawienia</a>
-                <a class="dropdown-item">Wyloguj</a>
-              </div>
+            <?php if($this->isLogged()) { ?>
+              <a class="btn btn-outline-primary nav-item nav-link mx-1" href="#">Dziś</a>
+              <a class="btn btn-outline-primary nav-item nav-link mx-1" href="#">Tydzień</a>
+              <a class="nav-item nav-link" href="/organizer">Organizer</a>
+              <div class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profil</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/profile">Ustawienia</a>
+                  <a class="dropdown-item" href="/logout">Wyloguj</a>
+                </div>
             </div>
             <a class="nav-item nav-link" href="#">Statystyki</a>
+            <?php }
+              else {
+              ?>
+                <a class="nav-item nav-link" href="/register">Rejestracja</a>
+                <a class="nav-item nav-link" href="/login">Logowanie</a>
+              <?php } ?>
           </div>
         </div>
        </nav>
