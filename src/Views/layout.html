@@ -16,7 +16,7 @@
         </button>
         <div id="navbarLinks" class="collapse navbar-collapse">
           <div class="navbar-nav ml-auto">
-            <?php if($this->isLogged()) { ?>
+            {% if user is defined %}
               <a class="btn btn-outline-primary nav-item nav-link mx-1" href="#">Dziś</a>
               <a class="btn btn-outline-primary nav-item nav-link mx-1" href="#">Tydzień</a>
               <a class="nav-item nav-link" href="/organizer">Organizer</a>
@@ -28,18 +28,16 @@
                 </div>
             </div>
             <a class="nav-item nav-link" href="#">Statystyki</a>
-            <?php }
-              else {
-              ?>
+            {% else %}
                 <a class="nav-item nav-link" href="/register">Rejestracja</a>
                 <a class="nav-item nav-link" href="/login">Logowanie</a>
-              <?php } ?>
+            {% endif %}
           </div>
         </div>
        </nav>
     </header>
     <main>
-      <?php echo $content; ?>
+      {% block content %} {% endblock %}
     </main>
     <footer id="stickyFooter">
       <nav class="nav bg-light justify-content-center py-1">

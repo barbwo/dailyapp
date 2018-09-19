@@ -7,9 +7,10 @@
   use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
   define('ENV', parse_ini_file(__DIR__ . '/.env'));
-  define('VIEW_PATH', __DIR__ . '/src/Views/');
+  define('VIEW_PATH', __DIR__ . ENV['VIEW_DIR']);
+  define('CACHE_PATH', __DIR__ . ENV['CACHE_DIR']);
 
-  if(ENV['APP_ENV'] === 'dev') {
+  if(ENV['DEBUG'] === '1') {
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
   }

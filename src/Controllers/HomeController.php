@@ -6,7 +6,10 @@ class HomeController extends Controller {
     $this->render('Home/home');
   }
   public function organizerAction(){
-    $this->render('Home/organizer');
+    if($this->user)
+      return $this->render('Home/organizer', ['user' => $this->user]);
+    else
+      return $this->redirect('login');
   }
   public function aboutAction(){
     $this->render('Home/about');
